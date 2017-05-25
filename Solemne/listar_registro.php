@@ -12,27 +12,34 @@ and open the template in the editor.
 	<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Login, Sign up Header</title>
         <link rel="stylesheet" href="Css/cabecera.css">
-        <link rel="stylesheet" href="Css/footer.css">
 	<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
         <script src="js/jquery-3.2.1.min.js"></script>
-
+  <link rel="stylesheet" href="Css/footer.css">
 </head>
-<body style=" background: #52697d">
+<body style=" background: #52697d;">
 
 <header class="header-login-signup">
 
+	<header class="header-login-signup">
+
 	<div class="header-limiter">
 
-            <h1><a href="index.php">Zona<span>Cumpleaños</span></a></h1>
+		<h1><a href="index.php">Zona<span>Cumpleaños</span></a></h1>
+
 		<nav>
-                    <a href="registro.php" >Registro</a>
-                    <a href="login.php" class="selected">Login</a>
+                    <a href="index.php" >Salir</a>
 		  </nav>
-	</div>  
+	</div>
+      
 </header>
 
 
+</header>
+
+<!-- The content of your page would go here. -->
+
+
 <footer style="color: aliceblue;
-    font-family: sans-serif;"><p>Duoc. DAI5501 - Solemne2 </p></footer>
+    font-family: sans-serif"><p>Duoc. DAI5501 - Solemne2 </p></footer>
 </body>
 </html>
