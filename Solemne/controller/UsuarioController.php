@@ -13,6 +13,7 @@ class UsuarioController {
         }
         $usuario = new Usuario();
         $usuario->setEmail($email);
+        
         $hash = password_hash($clave, PASSWORD_BCRYPT);
         $usuario->setClave($hash);
         
