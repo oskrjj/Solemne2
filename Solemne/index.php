@@ -41,9 +41,12 @@ and open the template in the editor.
                         if(isset($_SESSION["usuario"]))
                         {
                             echo '<a href="agregarFestejo.php"> Registrar Festejo </a>';
+                            echo '<a href="listar_registro.php" class="selected">Cumpleaños Actuales</a>';
                             echo '<a href="logout.php"> Cerrar Session </a>';
+                            
                         }else{
                             echo '<a href="login.php" class="selected">Login</a>';
+                            echo '<a href="listar_registro.php" class="selected">Cumpleaños Actuales</a>';
                         }
                     ?>
                     <a href="registro.php" >Registro</a>
