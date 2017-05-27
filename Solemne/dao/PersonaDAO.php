@@ -12,14 +12,14 @@ class PersonaDAO implements GenericDAO{
     }
     
     public function agregar($registro) {
-        $query = "INSERT INTO persona (nombre,apellido,fecha_nacimiento, email) VALUES ( :nombre, :apellido, :fecha_nacimiento, :email) ";
+        $query = "INSERT INTO persona (rut, nombre,apellido,fecha_nacimiento, email) VALUES (:rut, :nombre, :apellido, :fecha_nacimiento, :email) ";
         
         $sentencia = $this->conexion->prepare($query);
         
         $rut = $registro->getRut();
-        $nombre = $registro->getNombre();
+        $nombre = $registro->getNombre( );
         $apellido = $registro->getApellido();
-        $fechaNacimiento = $registro->getFechaNacimiento();
+        $fechaNacimiento = $registro->getFecha_nacimiento();
         $email = $registro->getEmail();
         
         $sentencia->bindParam(':rut' , $rut);

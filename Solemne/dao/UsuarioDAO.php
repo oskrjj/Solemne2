@@ -20,8 +20,8 @@ class UsuarioDAO implements GenericDAO{
         $email = $registro->getEmail();
         $password = $registro->getPassword();
         
-        $sentencia->binParam(':email', $email);
-        $sentencia->binParam('password', $password);
+        $sentencia->bindParam(':email', $email);
+        $sentencia->bindParam(':password', $password);
         
         return $sentencia->execute();
     }
@@ -31,7 +31,7 @@ class UsuarioDAO implements GenericDAO{
         
         $sentencia = $this->conexion->prepare($query);
         
-        $sentencia->binParam(':email', $idRegistro);
+        $sentencia->bindParam(':email', $idRegistro);
         
         return $sentencia->execute();
     }
@@ -44,7 +44,7 @@ class UsuarioDAO implements GenericDAO{
         /*@var $usuario Usuario */
         $usuario = null;
         
-        $sentencia = $this->conexion->prepare("SELECT email, clave FROM usuario WHERE email = :email");
+        $sentencia = $this->conexion->prepare("SELECT email, password FROM usuario WHERE email = :email");
         
         $email = $idRegistro;
         $sentencia->bindParam(':email', $email);
@@ -53,7 +53,7 @@ class UsuarioDAO implements GenericDAO{
         
         while($registro = $sentencia->fetch()) {            
             $usuario = new Usuario();
-            $usuario->setClave($registro["clave"]);
+            $usuario->setPassword($registro["password"]);
             $usuario->setEmail($registro["email"]);
         }
         

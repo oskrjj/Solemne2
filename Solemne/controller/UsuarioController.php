@@ -15,7 +15,7 @@ class UsuarioController {
         $usuario->setEmail($email);
         
         $hash = password_hash($clave, PASSWORD_BCRYPT);
-        $usuario->setClave($hash);
+        $usuario->setPassword($hash);
         
         $conexion = ConexionDB::getConexion();
         $daoUsuario = new UsuarioDAO($conexion);
@@ -41,7 +41,7 @@ class UsuarioController {
         }
         
         
-        if(password_verify($clave, $usuario->getClave())) {
+        if(password_verify($clave, $usuario->getPassword())) {
             $_SESSION["usuario"] = $usuario->getEmail();
             return true;
         }

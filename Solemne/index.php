@@ -1,3 +1,9 @@
+
+
+<?php
+   
+session_start();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -24,11 +30,27 @@ and open the template in the editor.
 	<div class="header-limiter">
 
             <h1><a href="index.php">Zona<span>Cumpleaños</span></a></h1>
-		<nav>
+                <?php
+                    if(isset($_SESSION["usuario"])) {
+                        echo '<p><b>Bienvenido</b>: '.$_SESSION["usuario"].'</p>';
+                        
+                    }
+                    ?>
+                <nav>
+                    <?php 
+                        if(isset($_SESSION["usuario"]))
+                        {
+                            echo '<a href="agregarFestejo.php"> Registrar Festejo </a>';
+                            echo '<a href="logout.php"> Cerrar Session </a>';
+                        }else{
+                            echo '<a href="login.php" class="selected">Login</a>';
+                        }
+                    ?>
                     <a href="registro.php" >Registro</a>
-                    <a href="login.php" class="selected">Login</a>
+                    
+                    
 		  </nav>
-	</div>  
+        </div>  
 </header>
 
 

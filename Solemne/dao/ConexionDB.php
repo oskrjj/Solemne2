@@ -11,7 +11,7 @@ class ConexionDB {
     const DBNAME = "dai_5501";
     const PORT = "3306";
     const USER = "root";
-    const PASS = "";
+    const PASS = "oskrj.19";
     
     public static function getConexion() {
         $dsn = "mysql:host=".self::HOST.";dbname=".self::DBNAME.";port=".self::PORT.";charset=utf8";

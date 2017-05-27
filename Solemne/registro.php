@@ -1,3 +1,26 @@
+<?php
+   
+session_start();
+
+include_once __DIR__."/controller/UsuarioController.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(isset($_POST["txtemail"]) && isset($_POST["txtpass1"]) && 
+       isset($_POST["txtpass2"])) {
+
+       $exito = UsuarioController::registrarUsuario($_POST["txtemail"],
+                                                    $_POST["txtpass1"],
+                                                    $_POST["txtpass2"]);
+       
+       if($exito) {
+           header("location: index.php");
+           return;
+       }
+    }  
+}
+
+?>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -32,34 +55,35 @@ and open the template in the editor.
                     <a href="login.php" class="selected">Login</a>
                      <a href="index.php" >Volver</a>
 		  </nav>
+                 <hav>
+                     <?php
+                    if(isset($_SESSION["usuario"])) {
+                        echo '<p><b>Usuario autenticado</b>: '.$_SESSION["usuario"].'</p>';
+                    }
+                ?>
+                </hav>
 	</div>
 </header>
 
     <div class="testbox">
   <h1>Registro</h1>
   
-  <form action="/">
+  <form action="registro.php" method="POST">
       <hr> 
       Ingrese datos solicitados
     <hr>
   
-  <label id="icon" for="name"><i class="icon-user"></i></label>
-  <input type="text" name="name" id="rut" placeholder="Rut" required/>
-  
-  <label id="icon" for="name"><i class="icon-user"></i></label>
-  <input type="text" name="name" id="nombre" placeholder="Nombre" required/>
-  
   <label id="icon" for="name"><i class="icon-envelope "></i></label>
-  <input type="text" name="name" id="email" placeholder="Email" required/>
+  <input type="email" name="txtemail" id="email" placeholder="Email" required/>
   
   
   <label id="icon" for="name"><i class="icon-shield"></i></label>
-  <input type="password" name="name" id="pass1" placeholder="Contraseña" required/>
+  <input type="password" name="txtpass1" id="pass1" placeholder="Contraseña" required/>
   
    <label id="icon" for="name"><i class="icon-shield"></i></label>
-  <input type="password" name="name" id="pass2" placeholder="Repita Contraseña" required/>
+  <input type="password" name="txtpass2" id="pass2" placeholder="Repita Contraseña" required/>
   
-   <a href="#" class="button">Register</a>
+  <input type="submit" name="enviar" value="Registrarse">
   </form>
 </div>
     <footer style="color: aliceblue;

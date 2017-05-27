@@ -1,3 +1,25 @@
+
+<?php
+   
+session_start();
+
+include_once __DIR__."/controller/UsuarioController.php";
+
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(isset($_POST["email"]) && isset($_POST["password"])) {
+
+       $exito = UsuarioController::validarUsuarioClave($_POST["email"], $_POST["password"]);
+       
+       if($exito) {
+           header("location: agregarFestejo.php");
+           return;
+       } else {
+           $errorMessage = "usuario o clave incorrectos";
+       }
+    }  
+}
+
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -32,6 +54,13 @@ and open the template in the editor.
 		<nav>
                     <a href="index.php" >Volver</a>
 		  </nav>
+                <hav>
+                     <?php
+                    if(isset($_SESSION["usuario"])) {
+                        echo '<p><b>Usuario autenticado</b>: '.$_SESSION["usuario"].'</p>';
+                    }
+                ?>
+                </hav>
 	</div>
 </header>
 
@@ -39,22 +68,25 @@ and open the template in the editor.
 <div class="testbox1">
   <h1>Login</h1>
   
-  <form action="/">
+  <form action="login.php" method="POST">
       <hr>
       Ingrese datos solicitados
     <hr>
   
-  <label id="icon" for="name"><i class="icon-user"></i></label>
-  <input type="text" name="name" id="rut" placeholder="Rut" required/>
+  <label id="icon" for="name"><i class="icon-envelope"></i></label>
+  <input type="email" name="email" id="email" placeholder="E-Mail" required/>
   
   <label id="icon" for="name"><i class="icon-shield"></i></label>
-  <input type="password" name="name" id="pass1" placeholder="Contraseña" required/>
+  <input type="password" name="password" id="pass1" placeholder="Contraseña" required/>
    
-   <a href="#" class="button">Ingresar</a>
+  
+  <input type="submit" name="enviar" value="Ingresar">
+   <a href="registro.php" class="button">Registrarse</a>
   </form>
 </div>
 
     <footer style="color: aliceblue;
     font-family: sans-serif"><p>Duoc. DAI5501 - Solemne2 </p></footer>
+   
 </body>
 </html>

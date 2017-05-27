@@ -23,7 +23,7 @@ class PersonaController {
         $conexion = ConexionDB::getConexion();
         $daoPersona = new PersonaDAO($conexion);
         
-        return $daoPersona->agregar($registro);
+        return $daoPersona->agregar($persona);
     }
     
     public Static function eliminarPersona($rut){
