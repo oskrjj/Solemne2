@@ -75,23 +75,23 @@ and open the template in the editor.
       Ingrese datos solicitados
     <hr>
   
-  <label id="icon" for="name"><i class="icon-user"></i></label>
-  <input type="text" name="rut" id="rut" placeholder="Rut" required/>
-  
-  <label id="icon" for="name"><i class="icon-user"></i></label>
-  <input type="text" name="nombre" id="nombre" placeholder="Nombre" required/>
-  
-  <label id="icon" for="name"><i class="icon-user"></i></label>
-  <input type="text" name="apellido" id="apellido" placeholder="Apellido" required/>
-  
-  <label id="icon" for="name"><i class="icon-user"></i></label>
-  <input type="date" name="fecha" id="fecha" placeholder="Fecha Nacimiento" required/>
-  
-  <label id="icon" for="name"><i class="icon-envelope"></i></label>
-  <input type="email" name="email" id="email" placeholder="E-Mail" required/>
-   
-  
-  <input type="submit" name="enviar" value="Registrar">
+        <label id="icon" for="name"><i class="icon-user"></i></label>
+        <input type="text" name="rut" id="rut" placeholder="Rut" required/>
+
+        <label id="icon" for="name"><i class="icon-user"></i></label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required/>
+
+        <label id="icon" for="name"><i class="icon-user"></i></label>
+        <input type="text" name="apellido" id="apellido" placeholder="Apellido" required/>
+
+        <label id="icon" for="name"><i class="icon-user"></i></label>
+        <input type="date" name="fecha" id="fecha" placeholder="Fecha Nacimiento" required/>
+
+        <label id="icon" for="name"><i class="icon-envelope"></i></label>
+        <input type="email" name="email" id="email" placeholder="E-Mail" required/>
+
+
+        <input type="submit" name="enviar" value="Registrar">
   
   </form>
 </div>

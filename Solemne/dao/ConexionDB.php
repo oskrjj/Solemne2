@@ -47,7 +47,7 @@ class ConexionDB {
         
         $mysqlConexion->exec("CREATE DATABASE ".self::DBNAME);
         $mysqlConexion->exec("USE ".self::DBNAME);
-        $mysqlConexion->exec("CREATE TABLE persona (rut INT(11) PRIMARY KEY, nombre VARCHAR(50) NOT NULL, apellido VARCHAR(50) NOT NULL, fecha_nacimiento DATE NOT NULL, email VARCHAR(100) NOT NULL)");  
+        $mysqlConexion->exec("CREATE TABLE persona (rut VARCHAR(13) PRIMARY KEY, nombre VARCHAR(50) NOT NULL, apellido VARCHAR(50) NOT NULL, fecha_nacimiento DATE NOT NULL, email VARCHAR(100) NOT NULL)");  
         $mysqlConexion->exec("CREATE TABLE usuario (email VARCHAR(100) PRIMARY KEY, password VARCHAR(256) NOT NULL)");  
         echo '<div class="success">Base de datos creada exitosamente.</div>';
         

@@ -20,7 +20,7 @@ class PersonaDAO implements GenericDAO{
         $nombre = $registro->getNombre( );
         $apellido = $registro->getApellido();
         $fechaNacimiento = $registro->getFecha_nacimiento();
-        $email = $registro->getEmail();
+        $email = $registro->getEmail(); 
         
         $sentencia->bindParam(':rut' , $rut);
         $sentencia->bindParam(':nombre', $nombre);
@@ -44,7 +44,8 @@ class PersonaDAO implements GenericDAO{
     public function listarTodos() {
         $listado = array();
         
-        $registros = $this->conexion->query("SELECT * FROM persona");
+       
+        $registros = $this->conexion->query("SELECT * FROM persona where MONTH(fecha_nacimiento) = MONTH(CURDATE()) ");
         
         if($registros != null) {
             foreach($registros as $fila) {
@@ -52,7 +53,7 @@ class PersonaDAO implements GenericDAO{
                 $persona->setRut($fila["rut"]);
                 $persona->setNombre($fila["nombre"]);
                 $persona->setApellido($fila["apellido"]);
-                $persona->setFechaNacimiento($fila["fecha_nacimiento"]);
+                $persona->setFecha_Nacimiento($fila["fecha_nacimiento"]);
                 $persona->setEmail($fila["email"]);
 
                 array_push($listado, $persona);
